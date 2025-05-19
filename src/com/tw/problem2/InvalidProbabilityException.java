@@ -1,4 +1,4 @@
-package com.tw;
+package com.tw.problem2;
 
 public class InvalidProbabilityException extends Exception {
     public InvalidProbabilityException(String message) {

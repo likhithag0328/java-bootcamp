@@ -1,7 +1,5 @@
 package com.tw.problem2;
 
-import com.tw.InvalidProbabilityException;
-
 import java.util.Objects;
 
 public class Probability {
