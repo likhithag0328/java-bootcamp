@@ -7,15 +7,15 @@ public class Main {
         int rectArea = rectangle.area();
         int rectPerimeter = rectangle.perimeter();
 
-        System.out.printf("Area:%d\n", rectArea);
-        System.out.printf("Perimeter:%d", rectPerimeter);
+        System.out.printf("Rectangle Area:%d\n", rectArea);
+        System.out.printf("Rectangle Perimeter:%d\n", rectPerimeter);
 
         Square square = new Square(7);
         int squareArea = square.area();
         int squarePerimeter = square.perimeter();
 
-        System.out.printf("Area:%d\n", squareArea);
-        System.out.printf("Perimeter:%d", squarePerimeter);
+        System.out.printf("Square Area:%d\n", squareArea);
+        System.out.printf("Square Perimeter:%d\n", squarePerimeter);
 
     }
 
