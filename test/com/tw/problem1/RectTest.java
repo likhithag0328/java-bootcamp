@@ -22,4 +22,10 @@ class RectTest {
         Rect rectangle = new Rect(5, 7);
         assertEquals(rectangle.perimeter(),24);
     }
+
+    @Test
+    void perimeterForInValidRect() {
+        Rect rectangle = new Rect(0, 0);
+        assertEquals(rectangle.perimeter(),0);
+    }
 }
