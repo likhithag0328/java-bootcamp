@@ -11,4 +11,8 @@ public class Inch {
     public boolean isEqualFeet(double feet) {
         return this.value/12 == feet;
     }
+
+    public boolean isEqualCM(centiMeter cm) {
+        return cm.isEqualInches(this.value);
+    }
 }
