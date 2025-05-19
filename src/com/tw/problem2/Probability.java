@@ -24,6 +24,10 @@ public class Probability {
         return new Probability(1 - probability);
     }
 
+    public Probability and(Probability probability){
+        return new Probability(this.probability * probability.probability);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Probability)) return false;

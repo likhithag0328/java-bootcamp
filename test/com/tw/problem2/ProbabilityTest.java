@@ -14,10 +14,15 @@ class ProbabilityTest {
 
     @Test
     void complementTestForInvalidProbability() {
-        try{
-            Probability.create(2.5).complement();
-        } catch (InvalidProbabilityException e) {
-            System.out.println(e);
-        }
+        InvalidProbabilityException exception = assertThrows(InvalidProbabilityException.class, ()->Probability.create(2.5));
+
+        assertEquals("Invalid probability", exception.getMessage());
+    }
+
+    @Test
+    void andTestForValidProbability() throws InvalidProbabilityException {
+        Probability probability = Probability.create(0.5);
+        Probability combinedProbability = probability.and(Probability.create(0.5));
+        assertEquals(Probability.create(0.25),combinedProbability);
     }
 }
