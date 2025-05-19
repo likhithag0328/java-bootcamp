@@ -21,11 +21,11 @@ public class Probability {
     }
 
     public Probability complement() {
-        return new Probability(1 - probability);
+        return new Probability(1 - this.probability);
     }
 
-    public Probability and(Probability probability){
-        return new Probability(this.probability * probability.probability);
+    public Probability and(Probability that) throws InvalidProbabilityException {
+        return Probability.create(this.probability * that.probability);
     }
 
     @Override
