@@ -7,6 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class FlipTest {
     @Test
     void tailsProbabilityTest() {
-        assertEquals(Flip.tailsProbability(),0.5);
+        assertEquals(0.5, Flip.tailsProbability());
+    }
+
+    @Test
+    void nonTailsProbabilityTest() {
+        assertEquals(0.5, Flip.nonTailsProbability());
     }
 }
