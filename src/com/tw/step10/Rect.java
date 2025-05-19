@@ -12,4 +12,8 @@ public class Rect {
     public int area() {
         return this.length * this.width;
     }
+
+    public int perimeter() {
+        return 2 * (this.length + this.width);
+    }
 }

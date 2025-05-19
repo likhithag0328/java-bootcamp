@@ -16,4 +16,10 @@ class RectTest {
         Rect rectangle = new Rect(0,5);
         assertEquals(rectangle.area(),0);
     }
+
+    @Test
+    void perimeterForValidRect() {
+        Rect rectangle = new Rect(5, 7);
+        assertEquals(rectangle.perimeter(),24);
+    }
 }
