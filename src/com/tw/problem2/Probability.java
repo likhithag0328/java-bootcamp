@@ -14,7 +14,7 @@ public class Probability {
     }
 
     public static Probability create(double probability) throws InvalidProbabilityException {
-        if(probability < 0 || probability > 1) {
+        if (probability < 0 || probability > 1) {
             throw new InvalidProbabilityException("Invalid probability");
         }
         return new Probability(probability);
@@ -26,6 +26,10 @@ public class Probability {
 
     public Probability and(Probability that) throws InvalidProbabilityException {
         return Probability.create(this.probability * that.probability);
+    }
+
+    public Probability or(Probability that) throws InvalidProbabilityException {
+        return Probability.create(this.probability + that.probability - this.probability * that.probability);
     }
 
     @Override

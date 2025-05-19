@@ -13,7 +13,7 @@ class ProbabilityTest {
     }
 
     @Test
-    void complementTestForInvalidProbability() {
+    void testForInvalidProbability() {
         InvalidProbabilityException exception = assertThrows(InvalidProbabilityException.class, ()->Probability.create(2.5));
 
         assertEquals("Invalid probability", exception.getMessage());
@@ -24,5 +24,12 @@ class ProbabilityTest {
         Probability probability = Probability.create(0.5);
         Probability combinedProbability = probability.and(Probability.create(0.5));
         assertEquals(Probability.create(0.25),combinedProbability);
+    }
+
+    @Test
+    void orTestForValidProbability() throws InvalidProbabilityException {
+        Probability probability = Probability.create(0.5);
+        Probability combinedProbality = probability.or(Probability.create(0.5));
+        assertEquals(Probability.create(0.75),combinedProbality);
     }
 }
