@@ -1,4 +1,4 @@
-package com.tw.step10;
+package com.tw.problem1;
 
 public class Rect {
     private final int length;

@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TossTest {
+class FlipTest {
     @Test
     void tailsProbabilityTest() {
-        assertEquals(Flip.tailsProbability(),50);
+        assertEquals(Flip.tailsProbability(),0.5);
     }
 }

@@ -1,4 +1,4 @@
-package com.tw.step10;
+package com.tw.problem1;
 
 public class Square {
     private final Rect rect;

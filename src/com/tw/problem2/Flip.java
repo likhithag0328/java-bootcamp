@@ -1,8 +1,7 @@
 package com.tw.problem2;
 
-public class Toss {
-
-    public static int tailsProbability() {
-        return 50;
+public class Flip {
+    public static double tailsProbability() {
+        return 0.5;
     }
 }
