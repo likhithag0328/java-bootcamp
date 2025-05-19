@@ -8,7 +8,7 @@ public class Feet {
         this.feet = feet;
     }
 
-    public boolean isEqual(double inches) {
-        return inches/12 == this.feet;
+    public boolean isEqual(Inch inches) {
+        return inches.isEqualFeet(this.feet);
     }
 }
