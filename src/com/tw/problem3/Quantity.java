@@ -18,7 +18,7 @@ public class Quantity {
         ratioRelativeToLiter = Collections.unmodifiableMap(temp);
     }
 
-    public Quantity(double value, String unit) {
+    private Quantity(double value, String unit) {
         this.value = value;
         this.unit = unit;
     }
