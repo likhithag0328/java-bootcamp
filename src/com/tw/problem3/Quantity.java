@@ -1,5 +1,6 @@
 package com.tw.problem3;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.Map;
 public class Quantity {
     private final double value;
     private final String unit;
+    private final static double minimum = 0;
 
     private static final Map<String, Double> ratioRelativeToLiter;
     static {
@@ -19,6 +21,11 @@ public class Quantity {
     public Quantity(double value, String unit) {
         this.value = value;
         this.unit = unit;
+    }
+
+    public static Quantity createQuantity(double value, String unit) throws IOException {
+        if(value < minimum) throw new IOException("Invalid quantity");
+        return new Quantity(value, unit);
     }
 
     public boolean isEqual(Quantity that) {
