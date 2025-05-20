@@ -31,7 +31,21 @@ public class Quantity {
     public Quantity add(Quantity that) throws IOException {
         double thisBase = this.baseValue();
         double thatBase = that.baseValue();
-        return Quantity.createQuantity(thisBase+ thatBase, LengthUnit.INCH);
+        Double result = Math.round((thisBase + thatBase) * 100.0) / 100.0;
+        return Quantity.createQuantity(result, this.unit.baseUnit());
+    }
+
+    private Unit getBaseUnit() {
+        System.out.println(this.unit);
+        System.out.println(this.unit.baseUnit());
+        return this.unit.baseUnit();
+    }
+
+    public static Quantity add(Quantity quantity1, Quantity quantity2) throws Exception {
+        if (quantity1.unit.getClass() != quantity2.unit.getClass())
+            throw new Exception("Hello");
+
+        return quantity1.add(quantity2);
     }
 
     @Override

@@ -10,7 +10,7 @@ class QuantityTest {
     @Test
     void testForEqualVolumes() throws IOException {
         Quantity quantity = Quantity.createQuantity(1, VolumeUnit.GALLON);
-        assert(quantity.isEqual(Quantity.createQuantity(3.78, VolumeUnit.LITER)));
+        assert (quantity.isEqual(Quantity.createQuantity(3.78, VolumeUnit.LITER)));
     }
 
     @Test
@@ -22,19 +22,19 @@ class QuantityTest {
     @Test
     void testForFootToInch() throws IOException {
         Quantity quantity = Quantity.createQuantity(1, LengthUnit.FOOT);
-        assert(quantity.isEqual(Quantity.createQuantity(12, LengthUnit.INCH)));
+        assert (quantity.isEqual(Quantity.createQuantity(12, LengthUnit.INCH)));
     }
 
     @Test
     void testForInchToCm() throws IOException {
         Quantity quantity = Quantity.createQuantity(2, LengthUnit.INCH);
-        assert(quantity.isEqual(Quantity.createQuantity(5, LengthUnit.CENTIMETER)));
+        assert (quantity.isEqual(Quantity.createQuantity(5, LengthUnit.CENTIMETER)));
     }
 
     @Test
     void testForCmToMm() throws IOException {
         Quantity quantity = Quantity.createQuantity(2, LengthUnit.CENTIMETER);
-        assert(quantity.isEqual(Quantity.createQuantity(20, LengthUnit.MILLIMETER)));
+        assert (quantity.isEqual(Quantity.createQuantity(20, LengthUnit.MILLIMETER)));
     }
 
     @Test
@@ -56,5 +56,12 @@ class QuantityTest {
         Quantity inch = Quantity.createQuantity(2, LengthUnit.INCH);
         Quantity cm = Quantity.createQuantity(2.5, LengthUnit.CENTIMETER);
         assertEquals(Quantity.createQuantity(3, LengthUnit.INCH), inch.add(cm));
+    }
+
+    @Test
+    void testForAddingDifferentUnitVolumes() throws IOException {
+        Quantity gallon = Quantity.createQuantity(1, VolumeUnit.GALLON);
+        Quantity liter = Quantity.createQuantity(1, VolumeUnit.LITER);
+        assertEquals(Quantity.createQuantity(4.78, VolumeUnit.LITER), gallon.add(liter));
     }
 }

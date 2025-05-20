@@ -1,5 +1,7 @@
 package com.tw.problem3;
 
+import sun.security.util.Length;
+
 public enum LengthUnit implements Unit {
     CENTIMETER(0.4),
     MILLIMETER(0.04),
@@ -15,5 +17,10 @@ public enum LengthUnit implements Unit {
     @Override
     public double toBaseUnit(double value) {
         return value * toInches;
+    }
+
+    @Override
+    public Unit baseUnit() {
+        return LengthUnit.INCH;
     }
 }

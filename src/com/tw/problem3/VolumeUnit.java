@@ -14,4 +14,9 @@ public enum VolumeUnit implements Unit {
     public double toBaseUnit(double value) {
         return value * toLiter;
     }
+
+    @Override
+    public Unit baseUnit() {
+        return VolumeUnit.LITER;
+    }
 }
