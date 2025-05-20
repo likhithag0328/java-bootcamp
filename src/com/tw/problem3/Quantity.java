@@ -1,6 +1,7 @@
 package com.tw.problem3;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Quantity {
     private final double value;
@@ -12,14 +13,30 @@ public class Quantity {
         this.unit = unit;
     }
 
-    public static Quantity createQuantity(double value, VolumeUnit volumeUnit) throws IOException {
+    public static Quantity createQuantity(double value, UnitCategory volumeUnit) throws IOException {
         if (value < minimum) throw new IOException("Invalid quantity");
         return new Quantity(value, volumeUnit);
     }
 
-    public boolean isEqual(Quantity other) {
+    public boolean isEqual(Quantity that) {
         double thisBase = this.unit.toBaseUnit(this.value);
-        double otherBase = other.unit.toBaseUnit(other.value);
-        return Double.compare(thisBase, otherBase) == 0;
+        double thatBase = that.unit.toBaseUnit(that.value);
+        return Double.compare(thisBase, thatBase) == 0;
+    }
+
+    public Quantity add(Quantity that) throws IOException {
+        return Quantity.createQuantity(this.value + that.value, this.unit);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Quantity)) return false;
+        Quantity quantity = (Quantity) o;
+        return Double.compare(value, quantity.value) == 0 && Objects.equals(unit, quantity.unit);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, unit);
     }
 }
