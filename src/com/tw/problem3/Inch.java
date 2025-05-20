@@ -12,7 +12,7 @@ public class Inch {
         return this.value/12 == feet;
     }
 
-    public boolean isEqualCM(centiMeter cm) {
+    public boolean isEqual(CentiMeter cm) {
         return cm.isEqualInches(this.value);
     }
 }

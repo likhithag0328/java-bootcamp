@@ -8,12 +8,12 @@ class InchTest {
     @Test
     void testForEqualLength() {
         Inch inch = new Inch(2);
-        assert(inch.isEqualCM(new centiMeter(5)));
+        assert(inch.isEqual(new CentiMeter(5)));
     }
 
     @Test
     void testForDifferentLength() {
         Inch inch = new Inch(2);
-        assertFalse(inch.isEqualCM(new centiMeter(50)));
+        assertFalse(inch.isEqual(new CentiMeter(50)));
     }
 }
