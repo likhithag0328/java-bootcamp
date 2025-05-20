@@ -1,6 +1,6 @@
 package com.tw.problem3;
 
-public enum VolumeUnit implements UnitCategory {
+public enum VolumeUnit implements Unit {
     LITER(1.0),
     GALLON(3.78);
 
@@ -10,6 +10,7 @@ public enum VolumeUnit implements UnitCategory {
         this.toLiter = toLiter;
     }
 
+    @Override
     public double toBaseUnit(double value) {
         return value * toLiter;
     }

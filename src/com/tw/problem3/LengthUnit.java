@@ -1,19 +1,19 @@
 package com.tw.problem3;
 
-public enum LengthUnit implements UnitCategory {
-    METER(1.0),
-    CENTIMETER(0.01),
-    MILLIMETER(0.001),
-    INCH(0.025),
-    FOOT(0.3);
+public enum LengthUnit implements Unit {
+    CENTIMETER(0.4),
+    MILLIMETER(0.04),
+    INCH(1.0),
+    FOOT(12);
 
-    final double toMeter;
+    final double toInches;
 
-    LengthUnit(double toMeter) {
-        this.toMeter = toMeter;
+    LengthUnit(double toInches) {
+        this.toInches = toInches;
     }
 
+    @Override
     public double toBaseUnit(double value) {
-        return value * toMeter;
+        return value * toInches;
     }
 }

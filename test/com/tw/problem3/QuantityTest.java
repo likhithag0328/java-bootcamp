@@ -20,6 +20,12 @@ class QuantityTest {
     }
 
     @Test
+    void testForFootToInch() throws IOException {
+        Quantity quantity = Quantity.createQuantity(1, LengthUnit.FOOT);
+        assert(quantity.isEqual(Quantity.createQuantity(12, LengthUnit.INCH)));
+    }
+
+    @Test
     void testForInchToCm() throws IOException {
         Quantity quantity = Quantity.createQuantity(2, LengthUnit.INCH);
         assert(quantity.isEqual(Quantity.createQuantity(5, LengthUnit.CENTIMETER)));
@@ -43,5 +49,12 @@ class QuantityTest {
         Quantity quantity1 = Quantity.createQuantity(2, LengthUnit.INCH);
         Quantity quantity2 = Quantity.createQuantity(5, LengthUnit.INCH);
         assertNotEquals(Quantity.createQuantity(8, LengthUnit.INCH), quantity1.add(quantity2));
+    }
+
+    @Test
+    void testForAddingDifferentUnitLengths() throws IOException {
+        Quantity inch = Quantity.createQuantity(2, LengthUnit.INCH);
+        Quantity cm = Quantity.createQuantity(2.5, LengthUnit.CENTIMETER);
+        assertEquals(Quantity.createQuantity(3, LengthUnit.INCH), inch.add(cm));
     }
 }

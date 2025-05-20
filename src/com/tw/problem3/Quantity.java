@@ -5,27 +5,33 @@ import java.util.Objects;
 
 public class Quantity {
     private final double value;
-    private final UnitCategory unit;
+    private final Unit unit;
     private final static double minimum = 0;
 
-    private Quantity(double value, UnitCategory unit) {
+    private Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
 
-    public static Quantity createQuantity(double value, UnitCategory volumeUnit) throws IOException {
+    public static Quantity createQuantity(double value, Unit volumeUnit) throws IOException {
         if (value < minimum) throw new IOException("Invalid quantity");
         return new Quantity(value, volumeUnit);
     }
 
     public boolean isEqual(Quantity that) {
-        double thisBase = this.unit.toBaseUnit(this.value);
-        double thatBase = that.unit.toBaseUnit(that.value);
+        double thisBase = this.baseValue();
+        double thatBase = that.baseValue();
         return Double.compare(thisBase, thatBase) == 0;
     }
 
+    private double baseValue() {
+        return this.unit.toBaseUnit(this.value);
+    }
+
     public Quantity add(Quantity that) throws IOException {
-        return Quantity.createQuantity(this.value + that.value, this.unit);
+        double thisBase = this.baseValue();
+        double thatBase = that.baseValue();
+        return Quantity.createQuantity(thisBase+ thatBase, LengthUnit.INCH);
     }
 
     @Override
