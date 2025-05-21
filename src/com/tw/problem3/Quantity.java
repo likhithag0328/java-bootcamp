@@ -3,17 +3,17 @@ package com.tw.problem3;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Quantity {
+public class Quantity <U extends Unit>{
     private final double value;
-    private final Unit unit;
+    private final U unit;
     private final static double minimum = 0;
 
-    private Quantity(double value, Unit unit) {
+    private Quantity(double value, U unit) {
         this.value = value;
         this.unit = unit;
     }
 
-    public static Quantity createQuantity(double value, Unit volumeUnit) throws IOException {
+    public static <U extends Unit> Quantity<U> createQuantity(double value, U volumeUnit) throws IOException {
         if (value < minimum) throw new IOException("Invalid quantity");
         return new Quantity(value, volumeUnit);
     }
@@ -33,12 +33,6 @@ public class Quantity {
         double thatBase = that.baseValue();
         Double result = Math.round((thisBase + thatBase) * 100.0) / 100.0;
         return Quantity.createQuantity(result, this.unit.baseUnit());
-    }
-
-    private Unit getBaseUnit() {
-        System.out.println(this.unit);
-        System.out.println(this.unit.baseUnit());
-        return this.unit.baseUnit();
     }
 
     public static Quantity add(Quantity quantity1, Quantity quantity2) throws Exception {
